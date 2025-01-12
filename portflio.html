@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Showcase</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f1219;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #00d8ff;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .portfolio-section {
+            margin-bottom: 60px;
+        }
+
+        .portfolio-section h2 {
+            color: #00d8ff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background-color: #11151d;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 216, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 216, 255, 0.4);
+        }
+
+        .portfolio-item h3 {
+            color: #00d8ff;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-item a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #00d8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .portfolio-item a:hover {
+            color: #008bbf;
+        }
+
+        footer {
+            text-align: center;
+            color: #bacdd1;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #00d8ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #008bbf;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Portfolio Showcase</h1>
+
+    <!-- Projects Section -->
+    <div class="portfolio-section">
+        <h2>Projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Operation Scheduler</h3>
+                <p>A web application for managing tasks and schedules with real-time data storage using Firebase.</p>
+                <a href="#">View Project →</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Dynamic News Portal</h3>
+                <p>An interactive news website with multimedia content and user interaction features.</p>
+                <a href="#">View Project →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Designs Section -->
+    <div class="portfolio-section">
+        <h2>Designs</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Portfolio Website</h3>
+                <p>A modern portfolio layout designed for creative professionals with responsive features.</p>
+                <a href="myportfolio2806.netlify.app">View Design →</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Blog Layout</h3>
+                <p>A clean and responsive blog layout to highlight articles with ease of navigation.</p>
+                <a href="#">View Design →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Code Snippets Section -->
+    <div class="portfolio-section">
+        <h2>Code Snippets</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Responsive Grid System</h3>
+                <p>A lightweight and customizable CSS grid system for web layouts.</p>
+                <a href="#">View Code →</a>
+            </div>
+            <div class="portfolio-item">
+                <h3>Dark Mode Toggle</h3>
+                <p>A JavaScript snippet to implement a smooth dark mode toggle for websites.</p>
+                <a href="#">View Code →</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Want to know more about my work? <a href="contact.html">Contact Me</a></p>
+    </footer>
+</body>
+
+</html>

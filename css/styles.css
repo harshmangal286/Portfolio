@@ -1,0 +1,211 @@
+/* General page reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #0f1219; /* Dark background */
+  color: #ffffff; /* White text */
+  margin: 0;
+  padding: 0;
+  overflow: auto; /* Allow scrolling if needed */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #11151d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+header h1 {
+  font-size: 28px;
+  color: #00d8ff; /* Neon blue for highlights */
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #00d8ff;
+  color: #0f1219;
+  transform: translateY(-3px); /* Hover animation */
+}
+
+/* Hero section */
+.main-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 20px;
+  height: calc(100vh - 100px); /* Full screen minus header height */
+  flex-wrap: wrap; /* Allow items to wrap */
+  background: linear-gradient(
+    145deg,
+    #11151d,
+    #333f47
+  ); /* Gradient background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.main-section h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.main-section h2 span {
+  color: #00d8ff; /* Neon blue accent for profession */
+}
+
+.main-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+.main-section .buttons {
+  margin-top: 20px;
+}
+
+.main-section .buttons a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #00d8ff; /* Neon blue buttons */
+  color: #0f1219;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.main-section .buttons a:hover {
+  background-color: #008bbf;
+  transform: translateY(-3px); /* Subtle hover animation */
+}
+
+.profile-image {
+  width: 360px;
+  height: 400px;
+  background-image: url("pic.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 40px;
+  border-radius: 10px;
+  box-shadow: 0 14px 50px rgba(0, 216, 255, 0.3);
+}
+
+/* Links Section */
+.links-section {
+  text-align: center;
+  margin-top: 20px;
+  background: linear-gradient(
+    145deg,
+    #333f47,
+    #11151d
+  ); /* Gradient for visual interest */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.links-section h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #00d8ff;
+  font-weight: bold;
+}
+
+.links-section ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.links-section ul li {
+  margin: 10px 0;
+}
+
+.links-section ul li a {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.links-section ul li a:hover {
+  background-color: #00d8ff;
+  color: #0f1219;
+  transform: translateY(-3px); /* Hover animation */
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background-color: #11151d;
+  text-align: center;
+  text-transform: capitalize;
+  color: #bacdd1;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+footer a {
+  color: #00d8ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #008bbf;
+}
+
+/* Social media icons */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #00d8ff;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #008bbf;
+  transform: translateY(-3px); /* Hover animation */
+}

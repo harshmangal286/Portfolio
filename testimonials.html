@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Page</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f1219;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #11151d;
+            border-bottom: 2px solid #00d8ff;
+            box-shadow: 0 4px 10px rgba(0, 216, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 26px;
+            color: #00d8ff;
+            text-shadow: 0 2px 4px rgba(0, 216, 255, 0.7);
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #00d8ff;
+            color: #0f1219;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #1a1e27;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 216, 255, 0.1);
+        }
+
+        .testimonials-section h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #00d8ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 216, 255, 0.7);
+        }
+
+        .testimonials-carousel {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 216, 255, 0.3);
+        }
+
+        .testimonials-carousel .testimonial {
+            display: none;
+            padding: 20px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .testimonials-carousel .testimonial.active {
+            display: block;
+        }
+
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #00d8ff;
+        }
+
+        .testimonial p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .testimonial h4 {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #00d8ff;
+        }
+
+        /* Carousel Controls */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #11151d;
+            text-align: center;
+            color: #fff;
+            border-top: 2px solid #00d8ff;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #00d8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #008bbf;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Testimonials</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="testimonials-section">
+        <h2>What People Say</h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial active">
+                <img src="images/pankaj sir.enc" alt="Pankaj Gupta Sir">
+                <p>"You have shown remarkable dedication to your work. Your attention to detail and passion have been exceptional."</p>
+                <h4>- Pankaj Gupta Sir</h4>
+            </div>
+
+            <div class="testimonial">
+                <img src="images/dinesh sir.jpeg" alt="Dinesh Salitra Sir">
+                <p>"Your work ethic and the quality of your projects have been impressive. You have a bright future ahead of you."</p>
+                <h4>- Dinesh Salitra Sir</h4>
+            </div>
+
+            <div class="testimonial">
+                <img src="images/harshali mam.jpeg" alt="harshali mam">
+                <p>"Your innovative ideas and commitment have made a significant difference. It has been a pleasure to witness your growth."</p>
+                <h4>- Harshali Jain Mam</h4>
+            </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Testimonials Page. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for rotating testimonials
+        let testimonials = document.querySelectorAll('.testimonial');
+        let currentIndex = 0;
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                if (i === index) {
+                    testimonial.classList.add('active');
+                }
+            });
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? testimonials.length - 1 : currentIndex - 1;
+            showTestimonial(currentIndex);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === testimonials.length - 1) ? 0 : currentIndex + 1;
+            showTestimonial(currentIndex);
+        });
+    </script>
+
+</body>
+</html>

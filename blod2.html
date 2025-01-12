@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 JavaScript Tricks Every Developer Should Know</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f1219;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.8;
+        }
+
+        h1 {
+            color: #00d8ff;
+            font-size: 28px;
+            border-bottom: 3px solid #00d8ff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        ol li {
+            margin-bottom: 15px;
+        }
+
+        ol li strong {
+            color: #00d8ff;
+            font-size: 20px;
+        }
+
+        pre {
+            background-color: #11151d;
+            padding: 10px 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            color: #00d8ff;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        code {
+            color: #00d8ff;
+        }
+
+        a {
+            color: #00d8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #008bbf;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #bacdd1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>10 JavaScript Tricks Every Developer Should Know</h1>
+    <p>JavaScript is a dynamic and powerful language that can greatly enhance your development process. Here are 10 tips and tricks to improve your coding skills:</p>
+    
+    <ol>
+        <li>
+            <strong>Default Parameters:</strong> Use default parameters to handle undefined values in functions.
+            <pre><code>function greet(name = 'Guest') {
+    console.log(`Hello, ${name}!`);
+}</code></pre>
+        </li>
+
+        <li>
+            <strong>Destructuring Assignment:</strong> Easily extract values from objects or arrays.
+            <pre><code>const { name, age } = { name: 'Alice', age: 25 };</code></pre>
+        </li>
+
+        <li>
+            <strong>Template Literals:</strong> Write cleaner multi-line strings and include expressions effortlessly.
+            <pre><code>const message = `Hello, ${name}! Welcome to our platform.`;</code></pre>
+        </li>
+
+        <li>
+            <strong>Optional Chaining:</strong> Safely access nested properties without causing errors.
+            <pre><code>console.log(user?.profile?.email);</code></pre>
+        </li>
+
+        <li>
+            <strong>Spread Operator:</strong> Clone or merge arrays and objects quickly.
+            <pre><code>const newArray = [...oldArray, 4, 5, 6];</code></pre>
+        </li>
+
+        <li>
+            <strong>Short-Circuit Evaluation:</strong> Simplify default value assignment using logical operators.
+            <pre><code>const value = input || 'Default';</code></pre>
+        </li>
+
+        <li>
+            <strong>Array Methods:</strong> Use functional programming with methods like map, filter, and reduce.
+            <pre><code>const squares = numbers.map(num => num * num);</code></pre>
+        </li>
+
+        <li>
+            <strong>Immediate Functions:</strong> Run functions immediately using IIFE.
+            <pre><code>(function() {
+    console.log('Runs immediately');
+})();</code></pre>
+        </li>
+
+        <li>
+            <strong>Object Property Shorthand:</strong> Simplify object creation when variables and property names match.
+            <pre><code>const obj = { name, age };</code></pre>
+        </li>
+
+        <li>
+            <strong>Debounce Function:</strong> Optimize performance by limiting the rate of function execution.
+            <pre><code>function debounce(func, delay) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => func(...args), delay);
+    };
+}</code></pre>
+        </li>
+    </ol>
+    
+    <p>With these tricks, you can write more efficient, cleaner, and maintainable JavaScript code. Practice them in your projects!</p>
+    
+    <footer>
+        <p><a href="mainblog.html">← Back to Blog</a></p>
+    </footer>
+</body>
+
+</html>

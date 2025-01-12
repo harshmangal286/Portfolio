@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends Details</title>
+    <style>
+        /* General page reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0f1219;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #11151d;
+            border-bottom: 2px solid #00d8ff;
+            box-shadow: 0 4px 10px rgba(0, 216, 255, 0.2);
+        }
+
+        header h1 {
+            font-size: 26px;
+            color: #00d8ff;
+            text-shadow: 0 2px 4px rgba(0, 216, 255, 0.7);
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #00d8ff;
+            color: #0f1219;
+        }
+
+        /* Friends Section */
+        .friends-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #1a1e27;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 216, 255, 0.1);
+        }
+
+        .friends-section h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #00d8ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0, 216, 255, 0.7);
+        }
+
+        .friends-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #cccccc;
+            border-bottom: 2px solid #00d8ff;
+            padding-bottom: 20px;
+        }
+
+        /* Friends Grid */
+        .friends-grid {
+            display: grid; 
+            grid-template-columns: 3fr;
+            gap: 70px; /* Space between the cards */
+            margin-top: 40px;
+            padding: 20 20px;
+        }
+        .friend-card {
+            width: 70%; /* Ensure the card takes full column width */
+            max-width: 300px; /* Limit the card width for better visuals */
+            box-shadow: 0 4px 20px rgba(0, 216, 255, 0.4); /* Add shadow for style */
+        }
+
+@media (max-width: 768px) {
+    .friends-grid {
+        grid-template-columns: 1fr; /* Switch to single-column for small screens */
+    }
+}
+
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 750px; /* Increased height for better content visibility */
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 20px rgba(0, 216, 255, 0.3);
+        }
+
+        .card-front {
+            background: linear-gradient(145deg, #0f1219, #1a1e27);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-back {
+            background: #1a1e27;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: medium;
+            transform: rotateY(180deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .friend-photo {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 3px solid #00d8ff;
+            box-shadow: 0 4px 20px rgba(0, 216, 255, 0.4);
+        }
+
+        .friend-info h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            color: #00d8ff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .friend-info p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .achievements {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .achievements li {
+            font-size: 15px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #00d8ff;
+            color: #0f1219;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: auto; /* Aligns button to the bottom of the card */
+        }
+
+        .btn:hover {
+            background-color: #008bbf;
+        }
+
+        /* Back to Content Button */
+        .back-btn {
+            padding: 10px 20px;
+            background-color: #ff4757;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px; /* Space above the button */
+            display: none; /* Hidden by default */
+        }
+
+        .back-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background-color: #11151d;
+            text-align: center;
+            color: #fff;
+            border-top: 2px solid #00d8ff;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #00d8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #008bbf;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .friends-grid {
+                grid-template-columns: 1fr; /* One-column layout on smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Friends Details</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="family.html">Family</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="friends-section">
+            <h2>Meet My Friends</h2>
+            <p>Here's a look at some of my closest friends and their amazing achievements.</p>
+
+            <div class="friends-grid">
+                <article class="friend-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/mayur.jpg" alt="Divyansh Chouhan" class="friend-photo">
+                            <div class="friend-info">
+                                <h3>Divyansh Chouhan</h3>
+                                <p>Divyansh is pursuing a BTech in Computer Science and Engineering, passionate about software development and technology.</p>
+                                <ul class="achievements">
+                                    <li>Active participant in coding competitions</li>
+                                    <li>Contributed to several open-source projects</li>
+                                    <li>Member of the college's tech club</li>
+                                </ul>
+                                <button class="btn" onclick="showMessage('message1', 'Divyansh, your dedication to CSE and your drive to improve every day is truly inspiring. Keep working hard, and you will reach new heights in your journey. I’m proud of your growth and always here to support you! 💻🚀 Stay focused, stay driven, and never stop learning!', this)">Something for You</button>
+                            </div>
+                        </div>                        
+                        </div>
+                        <div class="card-back" id="message1"></div>
+                    </div>
+                </article>
+
+                <article class="friend-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/ashu.enc" alt="Aashutosh Soni" class="friend-photo">
+                            <div class="friend-info">
+                                <h3>Aashutosh <br>Soni</h3>
+                                <p>Aashutosh is pursuing a BTech degree from Bhopal, after securing a rank in JEE 2024.</p>
+                                <ul class="achievements">
+                                    <li>Achieved a high rank in JEE 2024</li>
+                                    <li>Excelled in competitive exams and tech-related projects</li>
+                                    <li>Participating in national tech events and hackathons</li>
+                                </ul>
+                                <button class="btn" onclick="showMessage('message5', 'Aashutosh, your dedication and perseverance in reaching this stage is remarkable. You’ve achieved a great feat by cracking JEE, and this is only the beginning of your journey. Always know, I am here for you, cheering you on as you continue to make strides in your field. Keep moving forward—you are destined for greatness!', this)">Something for You</button>
+                            </div>
+                        </div>
+                        <div class="card-back" id="message5"></div>
+                    </div>
+                </article>
+
+                <article class="friend-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/jiya.jpg" alt="Jiya Hirani" class="friend-photo">
+                            <div class="friend-info">
+                                <h3>Jiya Hirani</h3>
+                                <p>Jiya is preparing for IPMAT to secure a spot at IIMs and is passionate about business and management.</p>
+                                <ul class="achievements">
+                                    <li>Participated in various case study competitions</li>
+                                    <li>Volunteered for numerous social initiatives</li>
+                                    <li>Strong leadership skills and teamwork abilities</li>
+                                </ul>
+                                <button class="btn" onclick="showMessage('message3', 'Jiya, your dreams are within reach! 🌟 Stay focused and determined. 💪 You got this! 🚀 Believe in yourself; you are capable of amazing things. ✨ Keep pushing forward! 💪 The world is yours, Jiya. 🌎 Go out and make it happen! 🚀', this)">Something for You</button>
+                            </div>
+                        </div>
+                        <div class="card-back" id="message3"></div>
+                    </div>
+                </article>
+
+                <article class="friend-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/oshi.jpg" alt="Oshi Guha" class="friend-photo">
+                            <div class="friend-info">
+                                <h3>Oshi Guha</h3>
+                                <p>Oshi is pursuing a degree in pharmacy, dedicated to understanding the pharmaceutical industry.</p>
+                                <ul class="achievements">
+                                    <li>Completed various internships in renowned hospitals</li>
+                                    <li>Engaged in research projects on drug development</li>
+                                    <li>Active member of the pharmacy student association</li>
+                                </ul>
+                                <button class="btn" onclick="showMessage('message4', 'Oshi, your dedication to pharmacy and your passion for healthcare are truly inspiring. Every bit of effort you put in today is building a brighter future for you and others. Remember, Keep up the amazing work! 💪 I am rooting for you every step of the way. 💖. Keep pushing forward—you are capable of amazing things!', this)">Something for You</button>
+                            </div>
+                        </div>
+                        <div class="card-back" id="message4"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024. All rights reserved.</p>
+        <p><a >Privacy Policy</a> | <a>Terms of Service</a></p>
+    </footer>
+
+    <script>
+        function showMessage(messageId, message, btnElement) {
+            const messageElement = document.getElementById(messageId);
+            messageElement.textContent = message;
+
+            // Display message and style it
+            messageElement.style.display = 'flex';
+            messageElement.style.alignItems = 'center';
+            messageElement.style.justifyContent = 'center';
+            messageElement.style.height = '100%';
+            messageElement.style.color = '#00000';
+            messageElement.style.fontSize = '20px';
+            messageElement.style.fontWeight = 'bold';
+            messageElement.style.backfaceVisibility = 'hidden';
+            messageElement.style.borderRadius = '15px';
+            messageElement.style.boxShadow = '0 4px 20px rgba(0, 216, 255, 0.4)';
+            messageElement.style.transition = 'transform 0.6s';
+            messageElement.style.textAlign = 'center'; // Center text
+
+            const cardInner = btnElement.closest('.card-inner');
+            cardInner.style.transform = `rotateY(180deg)`;
+
+            // Create back button
+            const backButton = document.createElement('button');
+            backButton.className = 'back-btn';
+            backButton.textContent = 'Go Back';
+            backButton.style.display = 'block'; // Make the button visible
+            backButton.onclick = function () {
+                cardInner.style.transform = 'rotateY(0deg)';
+                messageElement.style.display = 'none';
+                backButton.remove(); // Remove back button after going back
+            };
+
+            messageElement.appendChild(backButton);
+        }
+    </script>
+</body>
+
+</html>

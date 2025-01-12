@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Moment of Life</title>
+    <link rel="stylesheet" href="css/moments.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Best Moment of Life</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="family.html">Family</a></li>
+          <li><a href="friends.html">Friends</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="moment-section">
+        <div class="moment-content">
+          <h2>My Best Moment</h2>
+          <p>
+            One of the best moments of my life was when I achieved a significant
+            milestone that I had been working towards for years. The
+            satisfaction of seeing all my hard work pay off was incredible, and
+            it inspired me to keep pushing forward and striving for even greater
+            success.
+          </p>
+          <img src="images/certificate 1.jpeg" alt="Achievement certificate" />
+        </div>
+
+        <div class="slider">
+          <img src="images/virat.jpg" class="slide active" alt="Slide 1" />
+          <img src="images/moment1.jpg" class="slide" alt="Slide 2" />
+          <img src="images/moment2.jpg" class="slide" alt="Slide 3" />
+          <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+          <button class="next" onclick="changeSlide(1)">&#10095;</button>
+          <div class="dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      
+      <p>&copy; 2024 Best Moment of Life. All rights reserved.</p>
+    </footer>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function changeSlide(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+          slides[i].classList.remove("active");
+        }
+
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].classList.remove("active");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].classList.add("active");
+        dots[slideIndex - 1].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

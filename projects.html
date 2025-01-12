@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .filter-buttons button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project h3 {
+            margin-top: 0;
+        }
+
+        .project a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Projects</h1>
+        <p>Explore my projects and filter them by category.</p>
+    </header>
+
+    <div class="filter-buttons">
+        <button onclick="filterProjects('all')">All</button>
+        <button onclick="filterProjects('game')">Games</button>
+        <button onclick="filterProjects('web')">Web Apps</button>
+        <button onclick="filterProjects('tool')">Tools</button>
+    </div>
+
+    <div class="projects">
+        <div class="project" data-category="web">
+            <h3>Operation Scheduler with Firebase</h3>
+            <p>A scheduling app using Firebase for admin operation management.</p>
+            <a href="#operation-scheduler">View Project</a>
+        </div>
+        <div class="project" data-category="web">
+            <h3>Personal Portfolio</h3>
+            <p>A showcase of my skills, projects, and contact information.</p>
+            <a href="#personal-portfolio">View Project</a>
+        </div>
+        <div class="project" data-category="game">
+            <h3>Tic-Tac-Toe Game</h3>
+            <p>A classic 2-player game built with JavaScript and CSS animations.</p>
+            <a href="#tic-tac-toe">View Project</a>
+        </div>
+        <div class="project" data-category="tool">
+            <h3>Business Tracker</h3>
+            <p>A tool for tracking business tasks, profits, and deadlines.</p>
+            <a href="#business-tracker">View Project</a>
+        </div>
+        <div class="project" data-category="game">
+            <h3>Rock Paper Scissor</h3>
+            <p>A simple game to play against the computer.</p>
+            <a href="#rock-paper-scissor">View Project</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to filter projects by category
+        function filterProjects(category) {
+            const projects = document.querySelectorAll('.project');
+            projects.forEach(project => {
+                if (category === 'all' || project.getAttribute('data-category') === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
